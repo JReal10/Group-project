@@ -1,6 +1,7 @@
 # Linear Regression
-
 ## Least-squares
+
+https://www.youtube.com/watch?v=HLXLsvQU7Sc
 
 Accuracy of a line as a line of best fit is calculated by comparing the y-values of each point (the predicted result based on the x-value) to the y-value of the line of best fit at that same x-value. We take the square of each difference and sum the results of all points in the data.
 
@@ -14,35 +15,32 @@ $`S = \sum (r_n)^2`$
 
 https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/xfb5d8e68:residuals/v/regression-residual-intro
 
-## Correlation Coefficient
+## Ordinary Least Squares Regression
 
-Mean:
+### Equation of a line
+$`y=\alpha+\beta x\,`$  where $`\alpha`$ is the Y intercept and $`\beta`$ is the gradient of the line.
 
-$`\bar a=\frac{\sum|a_n|}{n}`$
+### Equation of a specific point
+$`y_i=\alpha+\beta x_i+\epsilon_i`$ where $`\epsilon_i`$ is the residual for the specific point.
 
-Standard deviation:
+### Deriving the Ordinary Least Squares estimator
 
-$`s=\sqrt{\frac{\sum(x-\bar x)^2}{n-1}}`$
+Start with the equation of a point and rearrange to be in terms of the residual.
 
-Correlation coefficient:
+$`\epsilon_i=y_i-\alpha-\beta x_i`$
 
-$`r = \frac{1}{n-1}\sum(\frac{x_i-\bar x}{s_x})(\frac{y_i-\bar y}{s_y})`$
+We are attempting to minimise the squares of the residuals, so square both sides.
 
-https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/correlation-coefficient-r/v/calculating-correlation-coefficient-r
+$`\epsilon_i^2=(y_i-\alpha-\beta x_i)^2`$
 
-## Calculating the line equation
+We want to do this for all points, so we sum.
 
-For the general line equation $`y=mx+b`$ we can calculate the constants as follows:
+$`\sum\epsilon_i^2=\sum(y_i-\alpha-\beta x_i)^2`$
 
-$`m=r \frac{s_y}{s_x}`$, where $`s_x`$ and $`s_y`$ are the standard deviation of the data points on each axis and $`r`$ is the correlation coefficient.
+Now we want to minimise the sum, so we differentiate with respect to $`\beta`$ and set it's value to zero to allow us to calculate the value of $`\beta`$.
 
+$`\hat\beta=\displaystyle\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}`$
 
-The point $`(\bar x,\bar y)`$ is guarenteed to be on the line, so we can substitute these values into the general line equation to calculate the value of $`b`$.
+With the result of this, we can also calculate the $`\alpha`$ value for our line.
 
-$`\bar y=m\bar x+b`$
-
-Which can be rearranged as:
-
-$`b = \bar y-m\bar x`$
-
-https://www.khanacademy.org/math/ap-statistics/bivariate-data-ap/least-squares-regression/v/calculating-the-equation-of-a-regression-line
+$`\hat\alpha=\bar y-\hat\beta \bar x`$
