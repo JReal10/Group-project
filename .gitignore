@@ -1,3 +1,5 @@
+# noisy data files
+project/data/*.csv
 # ide files
 **/.idea/workspace.xml
 **/.idea/tasks.xml
