@@ -1,7 +1,2 @@
-# build directory
-project/out/
-# ide files
-.idea/
-.vscode/
-# mac os folder config
-.DS_Store
+project/out/**
+.idea/**
