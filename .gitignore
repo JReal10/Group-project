@@ -1,2 +1,8 @@
-project/out/**
-.idea/**
+# build directory
+project/out/
+# ide files
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+.vscode/
+# mac os folder config
+.DS_Store
