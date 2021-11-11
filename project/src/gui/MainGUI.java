@@ -1,5 +1,4 @@
 package gui;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,5 +15,9 @@ public class MainGUI extends JFrame {
         add(menuOptions, BorderLayout.SOUTH);
         setSize(600,600);
         setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new MainGUI();
     }
 }
