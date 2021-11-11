@@ -1,5 +1,3 @@
-# build directory
-project/out/
 # ide files
 **/.idea/workspace.xml
 **/.idea/tasks.xml
