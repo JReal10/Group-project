@@ -34,11 +34,6 @@ class Read {
         } catch(IOException e) {
             System.out.println("Failed to read CSV data.");
         }
-        for (int i = 0; i < cases.size(); i++){
-            System.out.println(dates.get(i));
-            System.out.println(cases.get(i));
-        }
-
     }
 
     public void PrintLists(){
