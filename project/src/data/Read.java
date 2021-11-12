@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -18,6 +17,39 @@ class Read {
 
     public static List<String> dates = new ArrayList<>();
     public static List<String> cases = new ArrayList<>();
+
+
+    public Read(String url, String fileName){
+        try {
+            downloadFile(url, "resources/"+fileName);
+        } catch(ZipException e) {
+            System.out.println("Failed to extract CSV data due to invalid gzip stream.");
+        } catch(IOException e) {
+            System.out.println("Failed to get CSV data.");
+        } catch(InterruptedException e) {
+            System.out.println("CSV data download interrupted.");
+        }
+        try {
+            CsvReader("resources/"+fileName);
+        } catch(IOException e) {
+            System.out.println("Failed to read CSV data.");
+        }
+        for (int i = 0; i < cases.size(); i++){
+            System.out.println(dates.get(i));
+            System.out.println(cases.get(i));
+        }
+
+    }
+
+    public void PrintLists(){
+        System.out.println("--cases--");
+        for (int i = 0; i < cases.size(); i++)
+            System.out.println(dates.get(i));
+
+        System.out.println("--deaths--");
+        for (int i = 0; i < cases.size(); i++)
+            System.out.println(dates.get(i));
+    }
 
     public static void CsvReader(String filename) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -39,7 +71,7 @@ class Read {
         Files.copy(gzip, Path.of(filename), StandardCopyOption.REPLACE_EXISTING);
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String url = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=overview&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=csv";
         String url2 = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=overview&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22%7D&format=csv";
         try {
@@ -62,5 +94,5 @@ class Read {
             System.out.println(dates.get(i));
             System.out.println(cases.get(i));
         }
-    }
+    }*/
 }
