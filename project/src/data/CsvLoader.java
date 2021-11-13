@@ -16,7 +16,7 @@ import java.net.http.HttpClient;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipException;
 
-class CsvLoader {
+public class CsvLoader {
 
     private static final String url = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=overview&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=csv";
     private static final String filename = "resources/data.csv";
@@ -26,7 +26,7 @@ class CsvLoader {
     private int[] deaths;
 
     // initializes object data to include saved data
-    CsvLoader() throws IOException {
+    public CsvLoader() throws IOException {
         File f = new File(filename);
         if(!f.exists()) {
             update();
@@ -35,20 +35,20 @@ class CsvLoader {
         }
     }
 
-    Date[] getDates() {
+    public Date[] getDates() {
         return dates;
     }
 
-    int[] getCases() {
+    public int[] getCases() {
         return cases;
     }
 
-    int[] getDeaths() {
+    public int[] getDeaths() {
         return deaths;
     }
 
     //prints the contents of the x and the y lists
-    public void printLists() {
+    void printLists() {
         for(int i=0; i<dates.length; i++) {
             System.out.println(dates[i] + " cases: " + cases[i] + " deaths: " + deaths[i]);
         }
