@@ -20,6 +20,7 @@ public class MainGUI extends JFrame {
         add(menuOptions, BorderLayout.SOUTH);
         setSize(600,600);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try {
             dataSource = new CsvLoader();
         } catch(IOException e) {
