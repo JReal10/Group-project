@@ -1,8 +1,14 @@
 # noisy data files
-project/data/*.csv
+project/resources/*.csv
 # ide files
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+**/.idea/dataSources.ids
+**/.idea/dataSources.xml
+**/.idea/dataSources.local.xml
+**/.idea/sqlDataSources.xml
+**/.idea/dynamic.xml
+**/.idea/uiDesigner.xml
 .vscode/
 # mac os folder config
 .DS_Store
