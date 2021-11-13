@@ -2,7 +2,7 @@ package data;
 
 import java.io.IOException;
 
-public class CsvLoaderTest {
+class CsvLoaderTest {
     public static void main(String[] args) {
         try {
             CsvLoader cases = new CsvLoader();
