@@ -14,18 +14,21 @@ import java.util.zip.GZIPInputStream;
 
 class Read {
 
-    public static List<String> x = new ArrayList<>();
-    public static List<String> y = new ArrayList<>();
+    private static final String url = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=overview&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newCasesBySpecimenDate%22:%22newCasesBySpecimenDate%22,%22cumCasesBySpecimenDate%22:%22cumCasesBySpecimenDate%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=csv";
+    private static final String filename = "resources/data.csv";
+
+    public List<String> x = new ArrayList<>();
+    public List<String> y = new ArrayList<>();
 
 
     //downloads the csv from location inputted then reads the csv to two lists x and y
-    public Read(String url, String fileName) throws Exception{
-        downloadFile(url, "resources/"+fileName);
-        CsvReader("resources/"+fileName);
+    public Read() throws IOException, InterruptedException {
+        downloadFile(url, filename);
+        CsvReader(filename);
     }
 
     //prints the contents of the x and the y lists
-    public void PrintLists(){
+    public void PrintLists() {
         System.out.println("--cases--");
         for (int i = 0; i < y.size(); i++)
             System.out.println(y.get(i));
@@ -36,7 +39,7 @@ class Read {
     }
 
     //takes the dates and cumuliative data in the csv and writes them to the x and y lists
-    public static void CsvReader(String filename) throws IOException {
+    private void CsvReader(String filename) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -48,7 +51,7 @@ class Read {
     }
 
     //takes the file name and loction as input, goes to the website and downloads the file.
-    public static void downloadFile(String uri, String filename) throws IOException, InterruptedException {
+    private void downloadFile(String uri, String filename) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(uri)).build();
         HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
