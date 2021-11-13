@@ -62,9 +62,9 @@ public class CsvLoader {
         try {
             downloadCsv();
         } catch(IOException e) {
-            throw new IOException("Failed to download CSV: " + e.getMessage());
+            throw new IOException("Failed to download CSV");
         } catch(InterruptedException e) {
-            throw new IOException("Download interrupted: " + e.getMessage());
+            throw new IOException("Download interrupted");
         }
         try {
             readCsv();
@@ -121,7 +121,7 @@ public class CsvLoader {
             var gzip = new GZIPInputStream(response.body());
             Files.copy(gzip, Path.of(filename), StandardCopyOption.REPLACE_EXISTING);
         } catch(ZipException e) {
-            throw new IOException("unable to read gzip compressed csv ("+e.getMessage()+")");
+            throw new IOException("unable to read gzip compressed csv");
         }
     }
 }

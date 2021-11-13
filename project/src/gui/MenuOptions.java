@@ -23,11 +23,16 @@ public class MenuOptions extends JPanel {
 
     private class ReloadHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            try {
-                appFrame.updateDataSource();
-                JOptionPane.showMessageDialog(appFrame, "Successfully downloaded new data", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch(IOException e) {
-                JOptionPane.showConfirmDialog(appFrame, "Failed to update data, try again?\nError: "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            for(;;) {
+                try {
+                    appFrame.updateDataSource();
+                    JOptionPane.showMessageDialog(appFrame, "Successfully downloaded new data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                } catch (IOException e) {
+                    int result = JOptionPane.showConfirmDialog(appFrame, "Failed to update data, try again?\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    if(result==0) continue;
+                    else break;
+                }
             }
         }
     }
