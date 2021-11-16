@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class MainGUI extends JFrame {
     JTabbedPane tp = new JTabbedPane();
-    CurrentForecasts currentForecastsPanel = new CurrentForecasts();
+    CurrentForecasts currentForecastsPanel = new CurrentForecasts(this);
     JPanel furtherForecastsPanel = new FurtherForecasts();
     MenuOptions menuOptions = new MenuOptions(this);
 
