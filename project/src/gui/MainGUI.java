@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class MainGUI extends JFrame {
     JTabbedPane tp = new JTabbedPane();
-    CurrentForecasts currentForecastsPanel = new CurrentForecasts();
+    CurrentForecasts currentForecastsPanel = new CurrentForecasts(this);
     JPanel furtherForecastsPanel = new FurtherForecasts();
     MenuOptions menuOptions = new MenuOptions(this);
 
@@ -18,7 +18,7 @@ public class MainGUI extends JFrame {
         tp.addTab("Upcoming forecasts", null, furtherForecastsPanel);
         add(tp, BorderLayout.CENTER);
         add(menuOptions, BorderLayout.SOUTH);
-        setSize(600,600);
+        setSize(700,600);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try {
