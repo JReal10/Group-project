@@ -6,6 +6,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -119,7 +120,8 @@ public class CsvLoader {
         if (response.statusCode() != 200) throw new IOException("received response code: "+response.statusCode());
         try {
             var gzip = new GZIPInputStream(response.body());
-            Files.copy(gzip, Path.of(filename), StandardCopyOption.REPLACE_EXISTING);
+            Path pathToFile = Paths.get(filename);
+            Files.copy(gzip, pathToFile.toAbsolutePath(), StandardCopyOption.REPLACE_EXISTING);
         } catch(ZipException e) {
             throw new IOException("unable to read gzip compressed csv");
         }
