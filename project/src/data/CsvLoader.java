@@ -83,7 +83,8 @@ public class CsvLoader {
         List<Integer> casesList = new ArrayList<>();
         List<Integer> deathsList = new ArrayList<>();
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        Path path = Paths.get(filename);
+        try (BufferedReader br = new BufferedReader(new FileReader(path.toAbsolutePath().toString()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
