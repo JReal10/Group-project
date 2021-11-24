@@ -25,7 +25,7 @@ public class MenuOptions extends JPanel {
         public void actionPerformed(ActionEvent event) {
             for(;;) {
                 try {
-                    appFrame.updateDataSource();
+                    appFrame.refreshData();
                     JOptionPane.showMessageDialog(appFrame, "Successfully downloaded new data", "Success", JOptionPane.INFORMATION_MESSAGE);
                     return;
                 } catch (IOException e) {
