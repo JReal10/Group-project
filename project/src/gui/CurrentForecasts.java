@@ -3,11 +3,6 @@ package gui;
 import javax.swing.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.DomainOrder;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DatasetChangeListener;
-import org.jfree.data.general.DatasetGroup;
-import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -24,14 +19,19 @@ public class CurrentForecasts extends JPanel {
         this.app = app;
         myTextArea = new JTextArea("Current forecast graph will go here");
 
-        List<Integer> list = new ArrayList<Integer>();
-        XYSeries deaths = new XYSeries("Deaths");
-        for(int i=0; i<10; i++) deaths.add(i, i);
-        XYSeriesCollection dataset = new XYSeriesCollection();
-        dataset.addSeries(deaths);
-        chart = ChartFactory.createScatterPlot("Covid-19", "Days", "Deaths", dataset, PlotOrientation.HORIZONTAL, false, false, false);
-        chartPanel = new ChartPanel(chart);
+        refreshChart();
         add(chartPanel);
         add(myTextArea);
+    }
+
+    void refreshChart() {
+        long[] dayOffsets = app.data.getDateOffsets();
+        int[] deaths = app.data.getDeaths();
+        XYSeries deathsSeries = new XYSeries("Deaths");
+        for(int i=0; i<dayOffsets.length; i++) deathsSeries.add(dayOffsets[i], deaths[i]);
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(deathsSeries);
+        chart = ChartFactory.createScatterPlot("Covid-19", "Days", "Deaths", dataset, PlotOrientation.VERTICAL, false, false, false);
+        chartPanel = new ChartPanel(chart);
     }
 }

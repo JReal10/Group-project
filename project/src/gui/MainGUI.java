@@ -1,5 +1,5 @@
 package gui;
-import data.CsvLoader;
+import data.DataRepo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,13 +7,19 @@ import java.io.IOException;
 
 public class MainGUI extends JFrame {
     JTabbedPane tp = new JTabbedPane();
-    CurrentForecasts currentForecastsPanel = new CurrentForecasts(this);
+    CurrentForecasts currentForecastsPanel;
     JPanel furtherForecastsPanel = new FurtherForecasts();
     MenuOptions menuOptions = new MenuOptions(this);
 
-    CsvLoader dataSource;
+    DataRepo data;
 
     public MainGUI(){
+        try {
+            data = new DataRepo();
+        } catch(IOException e) {
+            JOptionPane.showConfirmDialog(this, "Failed to get data, try again?\nError: "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        currentForecastsPanel = new CurrentForecasts(this);
         tp.addTab("Current forecast", null, currentForecastsPanel);
         tp.addTab("Upcoming forecasts", null, furtherForecastsPanel);
         add(tp, BorderLayout.CENTER);
@@ -21,15 +27,10 @@ public class MainGUI extends JFrame {
         setSize(700,600);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        try {
-            dataSource = new CsvLoader();
-        } catch(IOException e) {
-            JOptionPane.showConfirmDialog(this, "Failed to get data, try again?\nError: "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
-    public void updateDataSource() throws IOException {
-        dataSource.update();
+    public void refreshData() throws IOException {
+        data.refresh();
     }
 
     public static void main(String[] args) {
