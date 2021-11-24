@@ -6,9 +6,6 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CurrentForecasts extends JPanel {
     private JTextArea myTextArea;
     private JFreeChart chart;
