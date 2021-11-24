@@ -22,9 +22,9 @@ public class DataRepo {
         return csvLoader.getDates();
     }
 
-    public long[] getDateOffsets() {
+    public double[] getDateOffsets() {
         Date[] dates = csvLoader.getDates();
-        long[] dateOffsets = new long[dates.length];
+        double[] dateOffsets = new double[dates.length];
         Date lowDate = Arrays.stream(dates).min(Date::compareTo).get();
         Temporal low = lowDate.toInstant();
         for(int i=0; i<dates.length; i++) {
@@ -33,11 +33,11 @@ public class DataRepo {
         return dateOffsets;
     }
 
-    public int[] getCases() {
+    public double[] getCases() {
         return csvLoader.getCases();
     }
 
-    public int[] getDeaths() {
+    public double[] getDeaths() {
         return csvLoader.getDeaths();
     }
 

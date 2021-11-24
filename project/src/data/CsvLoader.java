@@ -23,8 +23,8 @@ public class CsvLoader {
     private static final String filename = "resources/data.csv";
 
     private Date[] dates;
-    private int[] cases;
-    private int[] deaths;
+    private double[] cases;
+    private double[] deaths;
 
     // initializes object data to include saved data
     public CsvLoader() throws IOException {
@@ -40,11 +40,11 @@ public class CsvLoader {
         return dates;
     }
 
-    public int[] getCases() {
+    public double[] getCases() {
         return cases;
     }
 
-    public int[] getDeaths() {
+    public double[] getDeaths() {
         return deaths;
     }
 
@@ -104,8 +104,8 @@ public class CsvLoader {
                 }
             }
             dates = datesList.toArray(new Date[datesList.size()]);
-            cases = casesList.stream().mapToInt(i->i).toArray();
-            deaths = deathsList.stream().mapToInt(i->i).toArray();
+            cases = casesList.stream().mapToDouble(i->i).toArray();
+            deaths = deathsList.stream().mapToDouble(i->i).toArray();
         }
     }
 
