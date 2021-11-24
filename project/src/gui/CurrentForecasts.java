@@ -41,7 +41,7 @@ public class CurrentForecasts extends JPanel {
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(deathsSeries);
         Model model = refreshModel(dayOffsets, deaths);
-        chart = ChartFactory.createScatterPlot("Covid-19", "Days", "Deaths", dataset, PlotOrientation.VERTICAL, false, false, false);
+        chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", "Deaths", dataset, PlotOrientation.VERTICAL, false, false, false);
         if(dayOffsets.length>1) {
             double x1 = dayOffsets[0];
             double y1 = model.predict(x1);
