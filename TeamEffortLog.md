@@ -17,7 +17,23 @@
 *Do the same for each fully completed sprint.*
 
 
-## Team member name 2
+## Durga Wigton
+
+*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+
+## Jacob Hinton
+
+*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+
+## Roan John
+
+*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+
+## Jamie Ogundian
+
+*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+
+## Selda Ozturkmen
 
 *Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
 
