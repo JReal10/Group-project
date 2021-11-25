@@ -19,7 +19,53 @@
 
 ## Durga Wigton
 
-*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+Sprint 1 (University Week 3):
+*	Read project on Moodle
+*	Research format of existing data on NHS website
+*	Sign into Gitlab & Jira
+*	User Interfaces
+*	https://cseejira.essex.ac.uk/browse/B201157-6
+*	1 day
+*	Research to find out if there is an internal Java library for displaying data.
+Upload findings to GitLab.
+Java Swing can be used for plotting graphs, creating buttons & tables
+*	Tutor meeting with Dr Liang Hu at 1400hrs on 20/10/21 to discuss any issues.
+Sprint 2 (University Week 4):
+*	User Stories
+*	https://cseejira.essex.ac.uk/browse/B201157-10
+*	1 day
+*	Create 3 User Personas:
+1. Patricia Jones (NHS Manager)
+2. Mary McLeod (Retired Carer)
+3. James Johnson (Teacher)
+Upload User Stories to Jira and GitLab.
+*	Experiment with command line git (cloning, fetching, committing, branches etc..) to learn how it works and be able to use it in the project
+Sprint 3 (University Weeks 5 & 6):
+*	Downloading/reading files implementation - Data Analysis
+*	https://cseejira.essex.ac.uk/browse/B201157-16
+*	2 days
+*	Data to be read from the website and plotted in a graph with dates on the x-axis and cumulative death rates and Covid cases on the y-axis.
+Information in Array needs to be converted to date format so that it can be displayed and analysed.
+Created DateParser.java and DateParserTest.java.
+Downloaded test data to GitLab.
+Sprint 4 (University Week 7):
+*	Complete Risk Log
+*	https://cseejira.essex.ac.uk/browse/B201157-20
+*	1 day
+*	Complete 4 Risk Logs:
+1.Covid Transmission Prevention
+https://cseejira.essex.ac.uk/browse/B201157-32
+2.Inability of Team Members to attend meetings
+https://cseejira.essex.ac.uk/browse/B201157-33
+3.Failure of Computers
+https://cseejira.essex.ac.uk/browse/B201157-34
+4.Inadequate Final Product
+https://cseejira.essex.ac.uk/browse/B201157-35
+*	Complete team effort log – Durga Wigton
+*	https://cseejira.essex.ac.uk/browse/B201157-23
+*	1 day
+*	Write my part of the team effort log
+*	Scrum Master
 
 ## Jacob Hinton
 
