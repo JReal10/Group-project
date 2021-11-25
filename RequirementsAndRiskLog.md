@@ -35,7 +35,7 @@ The product will have the following constraints:
 * Prediction done off of case and death data only so accuracy will vary
 
 
-Risk Log
+## Risk Log
 
 1. Covid Transmission Prevention:
 Preventative actions have been put into place to deal with the current Delta variant of Covid-19 which can lead to hospitalization and death. Some patients may take longer to recover and be diagnosed with long-Covid and the University will make allowances for them to recover. Student sickness due to Covid may affect the Team Project by reducing the number of Team members able to contribute to the Task. Contingency measures include having deputy members in place to help complete the sub-tasks on time and the use of good communication by email or WhatsApp to keep other Team members informed if a Team member is unwell.
