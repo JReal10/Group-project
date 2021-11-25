@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class MainGUI extends JFrame {
     JTabbedPane tp = new JTabbedPane();
-    CurrentForecasts currentForecastsPanel;
-    JPanel furtherForecastsPanel = new FurtherForecasts();
+    ChartDisplay deathsDisplayPanel;
+    ChartDisplay casesDisplayPanel;
     MenuOptions menuOptions = new MenuOptions(this);
 
     DataRepo data;
@@ -19,9 +19,10 @@ public class MainGUI extends JFrame {
         } catch(IOException e) {
             JOptionPane.showConfirmDialog(this, "Failed to get data, try again?\nError: "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        currentForecastsPanel = new CurrentForecasts(this);
-        tp.addTab("Current forecast", null, currentForecastsPanel);
-        tp.addTab("Upcoming forecasts", null, furtherForecastsPanel);
+        casesDisplayPanel = new ChartDisplay(this, ChartDisplay.Mode.CASES);
+        deathsDisplayPanel = new ChartDisplay(this, ChartDisplay.Mode.DEATHS);
+        tp.addTab("Cases", null, casesDisplayPanel);
+        tp.addTab("Deaths", null, deathsDisplayPanel);
         add(tp, BorderLayout.CENTER);
         add(menuOptions, BorderLayout.SOUTH);
         setSize(700,600);

@@ -8,40 +8,45 @@ import linear_regression.OrdLeastSquares;
 import org.jfree.chart.*;
 import org.jfree.chart.annotations.XYAnnotation;
 import org.jfree.chart.annotations.XYLineAnnotation;
-import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.PlotRenderingInfo;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
-
-public class CurrentForecasts extends JPanel {
-    private JTextArea myTextArea;
+public class ChartDisplay extends JPanel {
     private JFreeChart chart;
     private ChartPanel chartPanel;
     private MainGUI app;
+    private String ylabel;
+    private Mode mode;
 
-    public CurrentForecasts(MainGUI app){
+    public ChartDisplay(MainGUI app, Mode mode){
         this.app = app;
-        myTextArea = new JTextArea("Current forecast graph will go here");
+        this.mode = mode;
+        switch(mode) {
+            case CASES:
+                ylabel = "Cases";
+                break;
+            case DEATHS:
+                ylabel = "Deaths";
+                break;
+            default:
+                assert false; // unreachable
+        }
 
         refreshChart();
         add(chartPanel);
-        add(myTextArea);
     }
 
     void refreshChart() {
         double[] dayOffsets = app.data.getDateOffsets();
-        double[] deaths = app.data.getDeaths();
-        XYSeries deathsSeries = new XYSeries("Deaths");
-        for(int i=0; i<dayOffsets.length; i++) deathsSeries.add(dayOffsets[i], deaths[i]);
+        double[] yvalues = mode==Mode.CASES ? app.data.getCases() : app.data.getDeaths();
+        XYSeries yseries = new XYSeries(ylabel);
+        for(int i=0; i<dayOffsets.length; i++) yseries.add(dayOffsets[i], yvalues[i]);
         XYSeriesCollection dataset = new XYSeriesCollection();
-        dataset.addSeries(deathsSeries);
-        Model model = refreshModel(dayOffsets, deaths);
-        chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", "Deaths", dataset, PlotOrientation.VERTICAL, false, false, false);
+        dataset.addSeries(yseries);
+        Model model = refreshModel(dayOffsets, yvalues);
+        chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", ylabel, dataset, PlotOrientation.VERTICAL, false, false, false);
         if(dayOffsets.length>1) {
             double x1 = dayOffsets[0];
             double y1 = model.predict(x1);
@@ -57,5 +62,10 @@ public class CurrentForecasts extends JPanel {
     Model refreshModel(double[] x, double[] y) {
         Estimator ols = new OrdLeastSquares();
         return ols.getModel(x,y);
+    }
+
+    enum Mode {
+        DEATHS,
+        CASES
     }
 }
