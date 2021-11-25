@@ -17,7 +17,6 @@ public class MenuOptions extends JPanel {
         add(reloadBtn, BorderLayout.SOUTH);
         reloadBtn.addActionListener(new ReloadHandler());
         add( new JButton("EXPORT TO PDF"), BorderLayout.SOUTH );
-        add( new JButton("GRAPH"), BorderLayout.SOUTH );
         add( new JButton("RAW DATA"), BorderLayout.SOUTH );
     }
 
