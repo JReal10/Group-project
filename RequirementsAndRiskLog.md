@@ -37,3 +37,32 @@ The product will have the following constraints:
 
 Risk Log
 
+1. Covid Transmission Prevention:
+Preventative actions have been put into place to deal with the current Delta variant of Covid-19 which can lead to hospitalization and death. Some patients may take longer to recover and be diagnosed with long-Covid and the University will make allowances for them to recover. Student sickness due to Covid may affect the Team Project by reducing the number of Team members able to contribute to the Task. Contingency measures include having deputy members in place to help complete the sub-tasks on time and the use of good communication by email or WhatsApp to keep other Team members informed if a Team member is unwell.
+Many students, lecturers, staff and visitors may be asymptomatic so the health center has contacted patients to take-up the offer of vaccination as recommended in the government guidelines in to prevent spread of the disease to the elderly and extremely vulnerable patients. Posters and signage have been placed around the University of Essex to express the importance of wearing a face covering especially in an enclosed area (unless a medical exemption applies). Social distancing  and regular handwashing is recommended while on campus and staff and students are encouraged to take an in initial test after 3 days and then bi-weekly tests to prevent the spread of the disease. Colchester campus has a Test and Trace area set up to allow access to PCR testing and there are areas set up to enable students to obtain the tests on site. NHS Test and Trace is available for staff and students who are symptomatic. The University should be notified immediately so provisions can be made for isolation.  
+The wiping over of keyboards and work areas with sanitizing wipes and the use of hand sanitizer before and after using laboratory areas is recommended by the Department of Computer Science and Electronic Engineering. The unnecessary sharing equipment such as pens should be kept to a minimum. Lectures are limited to online teaching via Zoom to minimize risk of exposure. Hand sanitizer pumps are located at high touch areas around the University such as photocopiers and drinking fountains. One-way systems have been implemented around the University to encourage social distancing. Contactless payment systems are recommended in the food areas to reduce transmission of the virus. Enhanced regular cleaning and sanitizing of high touch points has been implemented by the university along with a 72-hours period of leaving the area quarantined before cleaning staff are allowed to access the premises. Return to Work Risk Assessments and training should also be undertaken by the Departments to minimize the risk of transmission. Further up to date guidance on Covid guidelines can be obtained from the Government website and the University of Essex website (links below):
+https://www.gov.uk/coronavirus?gclid=CjwKCAiA4veMBhAMEiwAU4XRr8NnFUoM_MjBN6bNkOqxyUz2Z2D1JZ5DXckYmtDs-8e1Ue2zdIKQHhoCiUIQAvD_BwE
+https://www.essex.ac.uk/covid-19
+https://www.essex.ac.uk/student/covid-19/support
+
+Possible Major
+
+
+2. Inability of Team Members to attend meetings:
+Currently staff and students may travel abroad by plane in the holidays and be able to return due to travel restrictions or lockdown. Mandatory isolation due to Covid may also inhibit staff and students from reaching campus.
+The University of Essex is accessible by foot, bike, car, train, bus, coach, taxi and e-scooter.
+Due to traffic, accident, lack of funds, closure of the Orwell Bridge or adverse weather conditions, students and staff may be unable to get to scheduled meetings.
+For the Team Project, contingencies are put into place to ensure that a Deputy can take-over any sub tasks to ensure that deadlines are met on time. If notice of non-attendance is given, provision can be made for the Team member to access the meeting via Zoom. 
+
+Unlikely minor
+
+
+3. Risk Assessment 3: Failure of Computers:
+The risk of theft of computer hardware is minimized by using camera surveillance in the laboratories of the Department of Computer Science and Electronic Engineering. Electrical equipment is a fire risk if the equipment is old, un-serviced or has bad wiring. The computers in the University are regularly maintained to prevent this for occurring. Heat, humidity and water can also affect computer hardware and adequate cooling and ventilation is necessary. The laboratories are regularly maintained by technicians who check the computers and servers. Cyber security is mitigated by the use techniques such as firewalls, antivirus software and encryption. Denial of Service attacks, SQL injection attacks and Patent trolls are also a risk to the security of the computers at the university. The General Data Protection Regulations 2018 (GDPR) are adhered to, to ensure the confidentiality of personal details about students, staff and contractors. Software may also fail due to bugs in the software, network security attacks, lack of upgrade to the software or updates that are incompatible. The University has servers that are maintained and updated by technicians who will assess these risks. Each of the Team members has access to a personal laptop or Personal Computer to complete their sub-tasks remotely if necessary.
+
+Possible Moderate
+
+
+4. Inadequate Final Product:
+Inadequate understanding of the requirements can impact the design process. Adapting an agile methodology helps to understand Client needs at each stage of the task by receiving continuous feedback from the Client. Good design that lacks complexity, planning and peer reviews help to catch issues early on in the process. The design should be looked at using a fresh approach to the task and not taken from legacy designs that may have pre-existing issues. Independent testing is necessary to ensure that any serious defects are not missed. Any ineffective team members must also be managed effectively to ensure deadlines are met. 
+Unlikely Moderate
