@@ -3,19 +3,44 @@
 
 ## Mich Hamer
 
-*Edit the name above to match the name of the team member.  That team member is then responsible for this section.*
-
 ### Sprint 1 (University Week 3):
-* *Include a URL to the most siginificant Jira tasks assigned to you in sprint 1, and state when (or whether) it was completed, and the hours spent.*
-* *Example: "Link to Task 2.  It was set and completed in sprint 2.  It took 1 hour.  Extra relevant comment."*
-* *To save time, just describe the main (e.g. no more than 3) Jira issues assigned to you in this sprint. You are free to pick which 3 to describe.*
-* *Describe any relevant java coding completed by you in Sprint 1.  Also include permalinks to your gitlab commits.*
-* *Include the university week number in the subheading, as above.*
+* Review project with team, discuss approach and help divide tasks between members
+* Setup Git SSH keys
+* Learned and practiced with Git to be able to work as a team (Add, Remove, Commit, Fetch, Push, Pull, Branch & Checkout)
+* Research Linear Regression and Piecewise Functions to understand maths
+* Documented and recorded in markdown format on team Gitlab with latex formatted maths 
+* https://cseejira.essex.ac.uk/browse/B201157-5 (completed ~3hrs)
+* Linear Regression Documentation: https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/4fdb67d97035aa813fbbf2252fd8d0176c5498ea
 
 ### Sprint 2 (University Week 4):
+* Further research to understand linear regression in more detail; improved markdown documentation of linear regression
+* Created model and estimator interfaces to allow rest of group to use generic interfaces to unblock their tasks
+* Created linear regression implementation of model and estimator interfaces
+* Created tests for linear regression model which can also function as examples for team members who need to use the model
+* Learned more about Git (Rebase, Merge & Conflict resolution) as well as general Git workflow types
+* Discussed with team to help members set up Git SSH keys & relevant software
+* https://cseejira.essex.ac.uk/browse/B201157-13 (completed ~4hrs)
+* Improvement made to Linear Regression documentation: https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/54a164162b598c2769d0f1240808f524767ce605
+* Linear Regression Implementation: https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/1c9c3cf3338728e0718ff5cc9561fb6a66a22ec7
 
-*Do the same for each fully completed sprint.*
+### Sprint 3 (University Weeks 5 & 6):
+* Assisted team with Git usage & supported team with general approaches to tasks
+* https://cseejira.essex.ac.uk/browse/B201157-13 (research completed ~4hrs, implementation not completed)
+* Further research & documentation on Piecewise Linear Regression https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/2a7b2305b0d8e40835e31e84523d85c37babc7af
+* Assisted Jacob with downloading CSV data due to bug with extracting gzip compressed data https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/bfb6a04d7b70776ccde20c2a9d5e230a1626c9e8
+* Fixed error handling, converted CSV string data into usable format & refactored CSV code to be usable in application https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/4d4cc597897fd60094e26fdb767a1c8a035e898c
+* Added CSV downloading, reading & redownload features to GUI with error handling & dialogs https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/89099e32732ef7c8773777ac2c931b05e09de621
+* Added basic plotting component with dummy data https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/80e466575ef9feb20a1f9760043af3518eb2c528
+* Fixed some additional minor bugs in application
 
+### Sprint 4 (University Week 7):
+* Finalize MVP https://cseejira.essex.ac.uk/browse/B201157-26 (completed ~6hrs) https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/848a3741002d3a245daa5070155a24bc2c73f294
+    1. Prepare data for graph https://cseejira.essex.ac.uk/browse/B201157-28 (completed)
+    2. Prepare data for model https://cseejira.essex.ac.uk/browse/B201157-29 (completed)
+    3. Display model prediction on graph https://cseejira.essex.ac.uk/browse/B201157-30 (completed)
+* Add ability for both death & case graphs/predictions to be displayed in separate tabs https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/848a3741002d3a245daa5070155a24bc2c73f294
+* Minor code refactoring
+* Complete Team effort log
 
 ## Durga Wigton
 
