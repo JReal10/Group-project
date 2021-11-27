@@ -2,7 +2,7 @@
 
 ## Project management discussion
 
-All of the team has consistently turned up to the Thursday labs and actively participated In the discussions held. Tasks were assigned evenly to all members of the team and assigned according to the different strengths of the team members. Due to the vague project requirements initially presented, the first few sprints were less focused and geared more towards research into the requirements rather than programming the product itself until the requirements shown on moodle became more accurate.
+All of the team has consistently turned up to the Thursday labs and actively participated In the discussions held. Tasks were assigned evenly to all members of the team and assigned according to the different strengths of the team members. The first few sprints were less focused (on coding) and geared more towards research into the requirements rather than programming the product itself to ensure that we stuck to the specifications given. Outside of the meetings themselves we communicated through a WhatsApp group, this was done mainly to let people who were not able to attend the meeting know what tasks they have been set and to relay what discussions the team had in the meeting.
 
 ## Sprint Burndown Charts
 
