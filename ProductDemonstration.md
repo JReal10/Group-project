@@ -14,11 +14,20 @@ The parsed CSV data and model are passed to the graph component. The graph compo
 ## Demonstration from the user's perspective
 
 When starting the application, the application will attempt to display the following graph, which will show the CSV data either obtained from the file cache or by downloading from the government's website via their relevant data API.
+
 ![cases](Images/cases.png "user interface displaying a graph of COVID-19 case history")
+
 If the user clicks the deaths tab on the top left of the application, it will change to displaying the data and model related to recorded COVID-19 deaths.
+
 ![deaths](Images/deaths.png "user interface displaying a graph of COVID-19 death history")
+
 On application launch, or if the user clicks the reload button, the application will try to download new data from the government website; if this fails, it will display an error message informing the user, and asking them how they would like to proceed. If the user clicks yes, then the application will try again to download the data again; if the user clicks no or closes the error dialoge, the application will stop trying until the user clicks the reload button or restarts the application again.
+
 ![failure](Images/failure.png "user interface displaying an error after failing to downloaded updated data")
+
 If data is successfully download, after user input informing the application to attempt to download the new data, then a dialog is displayed to the user confirming the success of the operation. This is only displayed after the user either clicks the reload data button, or after a failed download the user clicks yes on the retry dialog; in the case of the application starting from a fresh launch, the dialog is not displayed as the feedback provided to the user is in the form of the application opening successfully, and a dialog box is not needed.
+
 ![success](Images/success.png "user interface displaying a confirmation message after it successfully downloads updated data")
+
 The application is currently not able to produce a PDF output, and this would be something that we would be likely to add in the finished product. We would also like to improve the model so it fits the data more than it currently does, using piecewise linear regression as we have documented here: https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/blob/ce3f6a85faf30ce8b354c7a9cef1d40f259ebbe8/research/linear_regression/piecewise.md
+
