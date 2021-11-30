@@ -57,7 +57,7 @@ For the Team Project, contingencies are put into place to ensure that a Deputy c
 Unlikely minor
 
 
-3. Risk Assessment 3: Failure of Computers:
+3. Failure of Computers:
 The risk of theft of computer hardware is minimized by using camera surveillance in the laboratories of the Department of Computer Science and Electronic Engineering. Electrical equipment is a fire risk if the equipment is old, un-serviced or has bad wiring. The computers in the University are regularly maintained to prevent this for occurring. Heat, humidity and water can also affect computer hardware and adequate cooling and ventilation is necessary. The laboratories are regularly maintained by technicians who check the computers and servers. Cyber security is mitigated by the use techniques such as firewalls, antivirus software and encryption. Denial of Service attacks, SQL injection attacks and Patent trolls are also a risk to the security of the computers at the university. The General Data Protection Regulations 2018 (GDPR) are adhered to, to ensure the confidentiality of personal details about students, staff and contractors. Software may also fail due to bugs in the software, network security attacks, lack of upgrade to the software or updates that are incompatible. The University has servers that are maintained and updated by technicians who will assess these risks. Each of the Team members has access to a personal laptop or Personal Computer to complete their sub-tasks remotely if necessary.
 
 Possible Moderate
@@ -65,4 +65,10 @@ Possible Moderate
 
 4. Inadequate Final Product:
 Inadequate understanding of the requirements can impact the design process. Adapting an agile methodology helps to understand Client needs at each stage of the task by receiving continuous feedback from the Client. Good design that lacks complexity, planning and peer reviews help to catch issues early on in the process. The design should be looked at using a fresh approach to the task and not taken from legacy designs that may have pre-existing issues. Independent testing is necessary to ensure that any serious defects are not missed. Any ineffective team members must also be managed effectively to ensure deadlines are met. 
+
 Unlikely Moderate
+
+5. Display Screen Equipment
+The User should perform regular Workstation Risk Assessments to identify possible issues that can be passed on to the laboratory technicians. The User should also perform workstation self-assessments at home as necessary. Potential health risks include visual fatigue, postural fatigue, operational stress and work-related upper limb disorders (WRULD). The Health and Safety Display Screen Equipment Regulations 1992 should be adhered to so far as is reasonably practicable. The work surface should be at a comfortable height with sufficient thigh and knee clearance, free from glare and with sufficient storage for equipment. The seat should be an swivel chair with a 5-star base and adjustable height and tilt. When typing, the user’s wrists should be straight, their feet flat on the floor, their lower back supported and their shoulders relaxed. The keyboard should be easily readable and separate from the monitor and have the ability to be tilted if needed. The monitor should be directly in front of the user at the correct height, distance and angle. The screen should be clean, glare-free and have the ability to be tilted. The characters on the screen should be legible and the brightness and contrast should be adjusted if necessary. The keyboard and mouse should also be within reach. The environment should have sufficient light and have reasonable temperature, be free from draughts and excessive background noise. Adequate breaks and stretching exercises should be encouraged. All display equipment users should have regular eye tests. All work areas should be wiped with sanitizer before and after use to prevent the transmission of diseases. 
+
+Unlikely minor
