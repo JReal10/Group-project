@@ -165,7 +165,38 @@ No project code, only test code to understand how to implement it
 
 ## Jamie Ogundian
 
-*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
+### Sprint 1 (University Week 3):
+* Research plotting
+* https://cseejira.essex.ac.uk/browse/B201157-3
+* It was set and completed in sprint 2. It took 1 hour.
+* Research ways of plotting charts in java. 
+* No code to display at this point as I only researched different ways of plotting. 
+
+### Sprint 2 (University Week 4)
+* Create plot component
+* https://cseejira.essex.ac.uk/browse/B201157-17
+* It was set and continued in sprint 3. I worked on it for a day.
+* implement JavaFX to vscode
+* Getting used to GitLab and Jira
+* No code to display, since JavaFX need to be implemented ob VScode to plot graphs
+
+### Sprint 3 (University Week 5&6)
+* Create plot component
+* https://cseejira.essex.ac.uk/browse/B201157-17
+* It was set and completed in sprint 4. I worked on it for 2 days.
+* Continuation on creating plot components from sprint 2.
+* implement plot component using JavaFX
+* https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/d45a329b11b13f237d720c0360f7944ed72c6942
+* implemented and changed the basic JavaFX line graph from: https://docs.oracle.com/javafx/2/charts/line-chart.htm  
+
+### Sprint 4(University week 7)
+* Updating team effort log
+* https://cseejira.essex.ac.uk/browse/B201157-24
+* It was set and completed in sprint sprint 5. I worked on it for a day.
+* updating my team effort log.
+* Since implementing JavaFX was not working on VScode, we decided not to use JavaFX and use another plot library(implemented by Mich)
+* No code to display
+
 
 ## Selda Ozturkmen
 
