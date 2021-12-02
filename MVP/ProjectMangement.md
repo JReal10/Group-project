@@ -6,13 +6,13 @@ All of the team has consistently turned up to the Thursday labs and actively par
 
 ## Sprint Burndown Charts
 
-![Sprint1](/Images/Sprint1.jpg "Sprint1")
+![Sprint1](Images/Sprint1.jpg "Sprint1")
 
-![Sprint2](/Images/Sprint2.jpg "Sprint2")
+![Sprint2](Images/Sprint2.jpg "Sprint2")
 
-![Sprint3](/Images/Sprint3.jpg "Sprint3")
+![Sprint3](Images/Sprint3.jpg "Sprint3")
 
-![Sprint4](/Images/Sprint4.jpg "Sprint4")
+![Sprint4](Images/Sprint4.jpg "Sprint4")
 
 ## Burndown-Charts Discussion
 
@@ -20,4 +20,4 @@ All of the team has consistently turned up to the Thursday labs and actively par
 
 ## Product Backlog
 
-![Backlog](/Images/Backlog.jpg "Backlog")
+![Backlog](Images/Backlog.jpg "Backlog")
