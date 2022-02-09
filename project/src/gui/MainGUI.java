@@ -29,6 +29,7 @@ public class MainGUI extends JFrame {
         setSize(700, 600);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {

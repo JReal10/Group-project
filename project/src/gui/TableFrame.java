@@ -7,12 +7,17 @@ import java.awt.*;
 
 public class TableFrame extends JFrame {
     TableFrame(DataRepo data) {
-        setSize(700, 600);
+        BorderLayout layout = (BorderLayout) getLayout();
+        layout.setHgap(10);
+        layout.setVgap(20);
+        setSize(400, 300);
         setVisible(true);
         setTitle("Cases");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         TableDisplayPanel displayPanel = new TableDisplayPanel(data);
-        add(displayPanel, BorderLayout.CENTER);
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.add(displayPanel);
+        add(scrollPane, BorderLayout.CENTER);
         TableButtonPanel buttonPanel = new TableButtonPanel(this);
         add(buttonPanel, BorderLayout.SOUTH);
     }

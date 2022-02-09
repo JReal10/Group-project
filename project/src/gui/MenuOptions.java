@@ -9,15 +9,17 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class MenuOptions extends JPanel {
+    JFrame parent;
     DataRepo data;
 
     public MenuOptions(JFrame parent, DataRepo data) {
+        this.parent = parent;
         this.data = data;
         FlowLayout layout = new FlowLayout(FlowLayout.CENTER, 10, 10);
         setLayout(layout);
         JButton reloadBtn = new JButton("Reload Data");
         add(reloadBtn, BorderLayout.SOUTH);
-        reloadBtn.addActionListener(new ReloadHandler(parent));
+        reloadBtn.addActionListener(new ReloadHandler());
         add(new JButton("EXPORT TO PDF"), BorderLayout.SOUTH);
         JButton dataBtn = new JButton("View Table");
         add(dataBtn, BorderLayout.SOUTH);
@@ -28,16 +30,11 @@ public class MenuOptions extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             TableFrame frame = new TableFrame(data);
+            frame.setLocationRelativeTo(parent);
         }
     }
 
     private class ReloadHandler implements ActionListener {
-        JFrame parent;
-
-        ReloadHandler(JFrame parent) {
-            this.parent = parent;
-        }
-
         @Override
         public void actionPerformed(ActionEvent event) {
             for (; ; ) {
