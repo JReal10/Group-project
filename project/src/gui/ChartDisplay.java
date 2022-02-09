@@ -50,6 +50,11 @@ public class ChartDisplay extends JPanel {
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(yseries);
         model = refreshModel(dayOffsets, yvalues);
+        XYSeries extrapolationSeries = new XYSeries(ylabel);
+        for (int i = dayOffsets.length; i < dayOffsets.length + 31; i++) {
+            extrapolationSeries.add(i, model.predict(i));
+        }
+        dataset.addSeries(extrapolationSeries);
         chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", ylabel, dataset, PlotOrientation.VERTICAL, false, false, false);
         if (dayOffsets.length > 1) {
             XYPlot plot = chart.getXYPlot();
@@ -69,12 +74,6 @@ public class ChartDisplay extends JPanel {
             double y2 = model.predict(x2);
             XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
             plot.addAnnotation(modelLine);
-            //double x1 = dayOffsets[0];
-            //double y1 = model.predict(x1);
-            //double x2 = dayOffsets[dayOffsets.length - 1];
-            //double y2 = model.predict(x2);
-            //XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
-            //plot.addAnnotation(modelLine);
         }
         chartPanel = new ChartPanel(chart);
     }
