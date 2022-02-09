@@ -2,6 +2,7 @@ package data;
 
 import java.io.*;
 import java.net.URI;
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
@@ -13,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.net.http.HttpClient;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipException;
 
@@ -29,7 +29,7 @@ public class CsvLoader {
     // initializes object data to include saved data
     public CsvLoader() throws IOException {
         File f = new File(filename);
-        if(!f.exists()) {
+        if (!f.exists()) {
             update();
         } else {
             readCsv();
@@ -50,32 +50,34 @@ public class CsvLoader {
 
     //prints the contents of the x and the y lists
     void printLists() {
-        for(int i=0; i<dates.length; i++) {
+        for (int i = 0; i < dates.length; i++) {
             System.out.println(dates[i] + " cases: " + cases[i] + " deaths: " + deaths[i]);
         }
     }
 
     /**
      * download new csv and update in memory representation
+     *
      * @throws IOException on update failure with meaningful description of cause
      */
     public void update() throws IOException {
         try {
             downloadCsv();
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new IOException("Failed to download CSV");
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             throw new IOException("Download interrupted");
         }
         try {
             readCsv();
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new IOException("Failed to read downloaded CSV file: " + e.getMessage());
         }
     }
 
     /**
      * loads CSV file from disk & attempts to store into in-memory storage
+     *
      * @throws IOException
      */
     private void readCsv() throws IOException {
@@ -88,7 +90,7 @@ public class CsvLoader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                if(values.length!=8) continue; // incomplete data
+                if (values.length != 8) continue; // incomplete data
                 try {
                     Date tmpDate = sd.parse(values[3]);
                     Integer tmpCase = Integer.parseInt(values[5]);
@@ -97,20 +99,21 @@ public class CsvLoader {
                     datesList.add(tmpDate);
                     casesList.add(tmpCase);
                     deathsList.add(tmpDeath);
-                } catch(ParseException e) {
+                } catch (ParseException e) {
                     continue; // ignore row
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     continue; // ignore row
                 }
             }
             dates = datesList.toArray(new Date[datesList.size()]);
-            cases = casesList.stream().mapToDouble(i->i).toArray();
-            deaths = deathsList.stream().mapToDouble(i->i).toArray();
+            cases = casesList.stream().mapToDouble(i -> i).toArray();
+            deaths = deathsList.stream().mapToDouble(i -> i).toArray();
         }
     }
 
     /**
      * Downloads remote CSV file and saves into preconfigured location
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -118,13 +121,23 @@ public class CsvLoader {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
         HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
-        if (response.statusCode() != 200) throw new IOException("received response code: "+response.statusCode());
+        if (response.statusCode() != 200) throw new IOException("received response code: " + response.statusCode());
         try {
             var gzip = new GZIPInputStream(response.body());
+            ensureDirExists();
             Path pathToFile = Paths.get(filename);
             Files.copy(gzip, pathToFile.toAbsolutePath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch(ZipException e) {
+        } catch (ZipException e) {
             throw new IOException("unable to read gzip compressed csv");
+        }
+    }
+
+    private void ensureDirExists() throws IOException {
+        String dir = filename.split("/")[0];
+        Path pathToDir = Paths.get(dir);
+        try {
+            Files.createDirectory(pathToDir);
+        } catch (IOException e) {
         }
     }
 }
