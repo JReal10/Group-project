@@ -14,11 +14,7 @@ public class MainGUI extends JFrame {
     MenuOptions menuOptions;
 
     public MainGUI() {
-        try {
-            data = new DataRepo();
-        } catch (IOException e) {
-            JOptionPane.showConfirmDialog(this, "Failed to get data, try again?\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        initData();
         menuOptions = new MenuOptions(this, data);
         casesDisplayPanel = new ChartDisplay(data, ChartDisplay.Mode.CASES);
         deathsDisplayPanel = new ChartDisplay(data, ChartDisplay.Mode.DEATHS);
@@ -36,7 +32,16 @@ public class MainGUI extends JFrame {
         new MainGUI();
     }
 
-    public void refreshData() throws IOException {
-        data.refresh();
+    private void initData() {
+        for (; ; ) {
+            try {
+                data = new DataRepo();
+                break;
+            } catch (IOException e) {
+                int userOption = JOptionPane.showConfirmDialog(this, "Failed to get data, try again?\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                if (userOption == JOptionPane.OK_OPTION) continue;
+                System.exit(-1);
+            }
+        }
     }
 }
