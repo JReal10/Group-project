@@ -12,6 +12,7 @@ import java.nio.file.StandardCopyOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
@@ -105,6 +106,9 @@ public class CsvLoader {
                     continue; // ignore row
                 }
             }
+            Collections.reverse(datesList);
+            Collections.reverse(casesList);
+            Collections.reverse(deathsList);
             dates = datesList.toArray(new Date[datesList.size()]);
             cases = casesList.stream().mapToDouble(i -> i).toArray();
             deaths = deathsList.stream().mapToDouble(i -> i).toArray();
