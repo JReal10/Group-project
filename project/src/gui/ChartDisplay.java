@@ -11,10 +11,13 @@ import org.jfree.chart.annotations.XYAnnotation;
 import org.jfree.chart.annotations.XYLineAnnotation;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.swing.*;
+
+import static java.awt.Color.BLUE;
 
 public class ChartDisplay extends JPanel {
     private JFreeChart chart;
@@ -50,6 +53,11 @@ public class ChartDisplay extends JPanel {
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(yseries);
         model = refreshModel(dayOffsets, yvalues);
+        XYSeries extrapolationSeries = new XYSeries(ylabel);
+        for (int i = dayOffsets.length; i < dayOffsets.length + 31; i++) {
+            extrapolationSeries.add(i, model.predict(i));
+        }
+        dataset.addSeries(extrapolationSeries);
         chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", ylabel, dataset, PlotOrientation.VERTICAL, false, false, false);
         if (dayOffsets.length > 1) {
             XYPlot plot = chart.getXYPlot();
@@ -63,19 +71,11 @@ public class ChartDisplay extends JPanel {
                 plot.addAnnotation(modelLine);
                 first = bound;
             }
-            double x1 = first;
-            double x2 = dayOffsets[dayOffsets.length - 1];
-            double y1 = model.predict(x1);
-            double y2 = model.predict(x2);
-            XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
-            plot.addAnnotation(modelLine);
-            //double x1 = dayOffsets[0];
-            //double y1 = model.predict(x1);
-            //double x2 = dayOffsets[dayOffsets.length - 1];
-            //double y2 = model.predict(x2);
-            //XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
-            //plot.addAnnotation(modelLine);
         }
+
+        XYPlot plot2 = chart.getXYPlot();
+        XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot2.getRenderer();
+        renderer.setSeriesPaint(1, BLUE);
         chartPanel = new ChartPanel(chart);
     }
 
