@@ -1,9 +1,9 @@
 package gui;
 
 import data.DataRepo;
-import linear_regression.Estimator;
 import linear_regression.Model;
-import linear_regression.OrdLeastSquares;
+import linear_regression.PiecewiseEstimator;
+import linear_regression.PiecewiseModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -22,7 +22,7 @@ public class ChartDisplay extends JPanel {
     private DataRepo data;
     private String ylabel;
     private Mode mode;
-    private Model model;
+    private PiecewiseModel model;
 
     public ChartDisplay(DataRepo data, Mode mode) {
         this.data = data;
@@ -52,20 +52,36 @@ public class ChartDisplay extends JPanel {
         model = refreshModel(dayOffsets, yvalues);
         chart = ChartFactory.createScatterPlot("Covid-19", "Days since First Case", ylabel, dataset, PlotOrientation.VERTICAL, false, false, false);
         if (dayOffsets.length > 1) {
-            double x1 = dayOffsets[0];
-            double y1 = model.predict(x1);
+            XYPlot plot = chart.getXYPlot();
+            double first = 0;
+            for (double bound : model.getBounds()) {
+                double x1 = first;
+                double x2 = bound;
+                double y1 = model.predict(x1);
+                double y2 = model.predict(x2);
+                XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
+                plot.addAnnotation(modelLine);
+                first = bound;
+            }
+            double x1 = first;
             double x2 = dayOffsets[dayOffsets.length - 1];
+            double y1 = model.predict(x1);
             double y2 = model.predict(x2);
             XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
-            XYPlot plot = chart.getXYPlot();
             plot.addAnnotation(modelLine);
+            //double x1 = dayOffsets[0];
+            //double y1 = model.predict(x1);
+            //double x2 = dayOffsets[dayOffsets.length - 1];
+            //double y2 = model.predict(x2);
+            //XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
+            //plot.addAnnotation(modelLine);
         }
         chartPanel = new ChartPanel(chart);
     }
 
-    Model refreshModel(double[] x, double[] y) {
-        Estimator ols = new OrdLeastSquares();
-        return ols.getModel(x, y);
+    PiecewiseModel refreshModel(double[] x, double[] y) {
+        PiecewiseEstimator estimator = new PiecewiseEstimator();
+        return (PiecewiseModel) estimator.getModel(x, y);
     }
 
     public Model getModel() {
