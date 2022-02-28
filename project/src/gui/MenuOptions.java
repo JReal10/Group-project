@@ -11,6 +11,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MenuOptions extends JPanel {
     JFrame parent;
@@ -61,14 +63,18 @@ public class MenuOptions extends JPanel {
         public void actionPerformed(ActionEvent event) {
             try {
                 PDDocument export = new PDDocument();
-                export.save("Results.pdf");
                 PDPage page1 = new PDPage();
                 export.addPage(page1);
                 PDPage page = export.getPage(0);
-                PDImageXObject pdImage = PDImageXObject.createFromFile("/graph.png", export);
+                PDImageXObject pdImage = PDImageXObject.createFromFile("./output.png", export);
+                PDImageXObject pdImage2 = PDImageXObject.createFromFile("./output2.png", export);
                 PDPageContentStream contentStream = new PDPageContentStream(export, page);
-                contentStream.drawImage(pdImage, 70, 250);
+                contentStream.drawImage(pdImage, 50, 400);
+                contentStream.drawImage(pdImage2, 50, 60);
                 contentStream.close();
+                String filename = "Results_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH_mm_ss")) + ".pdf";
+                System.out.println(filename);
+                export.save(filename);
                 export.close();
             } catch (IOException e) {
                 e.printStackTrace();

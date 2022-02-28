@@ -15,7 +15,11 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import static java.awt.Color.BLUE;
 
@@ -77,7 +81,22 @@ public class ChartDisplay extends JPanel {
         XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot2.getRenderer();
         renderer.setSeriesPaint(1, BLUE);
         chartPanel = new ChartPanel(chart);
+        myFunction(chart);
+
     }
+
+    void myFunction(JFreeChart chart) {
+        try {
+            BufferedImage ylabel = chart.createBufferedImage(450, 325);
+            File outputfile = new File("./output.png");
+            ImageIO.write(ylabel, "png", outputfile);
+            File outputfile2 = new File("./output2.png");
+            ImageIO.write(ylabel, "png", outputfile2);
+        } catch (IOException e) {
+            System.out.println("ERROR, could not create file. ");
+        }
+    }
+
 
     PiecewiseModel refreshModel(double[] x, double[] y) {
         PiecewiseEstimator estimator = new PiecewiseEstimator();
