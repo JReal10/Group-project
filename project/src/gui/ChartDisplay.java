@@ -71,27 +71,12 @@ public class ChartDisplay extends JPanel {
                 plot.addAnnotation(modelLine);
                 first = bound;
             }
-            chartPanel = new ChartPanel(chart);
-        myFunction(chart);
         }
-        void myFunction(JFreeChart chart){
-            try{
-                BufferedImage ylabel = chart.createBufferedImage(700,500);
-                File outputfile = new File ("./output.png");
-                ImageIO.write(ylabel, "png", outputfile);
-                }
-                
-                catch (IOException e) {
-                    System.out.println("ERROR, could not create file. ");
-                    }
-                }
-    
 
         XYPlot plot2 = chart.getXYPlot();
         XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot2.getRenderer();
         renderer.setSeriesPaint(1, BLUE);
         chartPanel = new ChartPanel(chart);
-        myFunction(chart);
     }
 
     PiecewiseModel refreshModel(double[] x, double[] y) {
