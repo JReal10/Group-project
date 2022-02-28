@@ -11,6 +11,7 @@
     <orderEntry type="library" name="jfreechart" level="project" />
     <orderEntry type="library" name="pdfbox-2.0.24" level="project" />
     <orderEntry type="library" name="fontbox-2.0.24" level="project" />
+    <orderEntry type="library" name="pdfbox-app-2.0.25" level="project" />
     <orderEntry type="library" name="junit.jupiter" level="project" />
   </component>
 </module>
