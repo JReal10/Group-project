@@ -11,25 +11,30 @@ import java.text.DecimalFormat;
 
 public class TableDisplayPanel extends JPanel {
     TableDisplayPanel(DataRepo data) {
-        GridLayout layout = new GridLayout(1, 1);
+        LayoutManager layout = new BorderLayout();
         setLayout(layout);
-        String[] columnNames = {"Day", "Cases"};
+        String[] columnNames = {"Day", "Cases", "Deaths"};
         String[][] tableData = new String[7][];
         double[] dates = data.getDateOffsets();
         double[] cases = data.getCases();
+        double[] deaths = data.getDeaths();
         Estimator estimator = new OrdLeastSquares();
-        Model model = estimator.getModel(dates, cases);
+        Model casesModel = estimator.getModel(dates, cases);
+        Model deathsModel = estimator.getModel(dates, deaths);
         DecimalFormat df = new DecimalFormat("###,###");
         df.setMaximumIntegerDigits(15);
         for (int i = 0; i < 7; i++) {
             double day = dates[0] + i;
-            double predicted = model.predict(day + 1);
-            tableData[i] = new String[2];
+            double predictedCases = casesModel.predict(day + 1);
+            double predictedDeaths = deathsModel.predict(day + 1);
+            tableData[i] = new String[3];
             tableData[i][0] = "+" + Integer.toString(i + 1) + " days";
-            tableData[i][1] = df.format(predicted);
+            tableData[i][1] = df.format(predictedCases);
+            tableData[i][2] = df.format(predictedDeaths);
         }
         JTable table = new JTable(tableData, columnNames);
         table.setFillsViewportHeight(true);
-        add(table);
+        add(table.getTableHeader(), BorderLayout.NORTH);
+        add(table, BorderLayout.CENTER);
     }
 }
