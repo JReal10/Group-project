@@ -5,11 +5,19 @@ import linear_regression.Estimator;
 import linear_regression.Model;
 import linear_regression.OrdLeastSquares;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class TableDisplayPanel extends JPanel {
+
+    private JTable table;
+
     TableDisplayPanel(DataRepo data) {
         LayoutManager layout = new BorderLayout();
         setLayout(layout);
@@ -32,9 +40,27 @@ public class TableDisplayPanel extends JPanel {
             tableData[i][1] = df.format(predictedCases);
             tableData[i][2] = df.format(predictedDeaths);
         }
-        JTable table = new JTable(tableData, columnNames);
+        this.table = new JTable(tableData, columnNames);
         table.setFillsViewportHeight(true);
         add(table.getTableHeader(), BorderLayout.NORTH);
         add(table, BorderLayout.CENTER);
+    }
+
+    public void TableExport(String filename){
+        table.setSize(250, 150);
+        JTableHeader header = table.getTableHeader();
+        int width = Math.max(table.getWidth(), header.getWidth());
+        int height = table.getHeight() + header.getHeight();
+        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g = bi.createGraphics();
+        header.paint(g);
+        g.translate(0, header.getHeight());
+        table.paint(g);
+        g.dispose();
+        try {
+            ImageIO.write(bi, "png", new File(filename));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

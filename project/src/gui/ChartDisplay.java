@@ -81,17 +81,17 @@ public class ChartDisplay extends JPanel {
         XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot2.getRenderer();
         renderer.setSeriesPaint(1, BLUE);
         chartPanel = new ChartPanel(chart);
-        myFunction(chart);
-
     }
 
-    void myFunction(JFreeChart chart) {
+    public JFreeChart getChart() {
+        return chart;
+    }
+
+    void exportGraph(JFreeChart chart, String filename) {
         try {
             BufferedImage ylabel = chart.createBufferedImage(450, 325);
-            File outputfile = new File("./output.png");
+            File outputfile = new File(filename);
             ImageIO.write(ylabel, "png", outputfile);
-            File outputfile2 = new File("./output2.png");
-            ImageIO.write(ylabel, "png", outputfile2);
         } catch (IOException e) {
             System.out.println("ERROR, could not create file. ");
         }

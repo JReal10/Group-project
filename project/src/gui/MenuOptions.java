@@ -4,6 +4,7 @@ import data.DataRepo;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import javax.swing.*;
@@ -63,17 +64,28 @@ public class MenuOptions extends JPanel {
         public void actionPerformed(ActionEvent event) {
             try {
                 PDDocument export = new PDDocument();
-                PDPage page1 = new PDPage();
-                export.addPage(page1);
-                PDPage page = export.getPage(0);
-                PDImageXObject pdImage = PDImageXObject.createFromFile("./output.png", export);
-                PDImageXObject pdImage2 = PDImageXObject.createFromFile("./output2.png", export);
-                PDPageContentStream contentStream = new PDPageContentStream(export, page);
-                contentStream.drawImage(pdImage, 50, 400);
-                contentStream.drawImage(pdImage2, 50, 60);
+                PDPage page_1 = new PDPage();
+                export.addPage(page_1);
+                PDPage page_2 = new PDPage();
+                export.addPage(page_2);
+                PDPage page1 = export.getPage(0);
+                float yStart = PDRectangle.A4.getHeight() - 425;
+                float Width = PDRectangle.A4.getWidth() - 500;
+                PDImageXObject pdImage = PDImageXObject.createFromFile("./deathsGraph.png", export);
+                PDImageXObject pdImage2 = PDImageXObject.createFromFile("./casesGraph.png", export);
+                PDPageContentStream contentStream = new PDPageContentStream(export, page1);
+                contentStream.drawImage(pdImage, Width, yStart);
+                contentStream.drawImage(pdImage2, Width, 60);
                 contentStream.close();
+                TableDisplayPanel displayPanel = new TableDisplayPanel(data);
+                displayPanel.setSize(250,150);
+                displayPanel.TableExport("./table.png");
+                PDImageXObject pdImage3 = PDImageXObject.createFromFile("./table.png", export);
+                PDPage page2 = export.getPage(1);
+                PDPageContentStream contentStream2 = new PDPageContentStream(export, page2);
+                contentStream2.drawImage(pdImage3, Width, yStart);
+                contentStream2.close();
                 String filename = "Results_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH_mm_ss")) + ".pdf";
-                System.out.println(filename);
                 export.save(filename);
                 export.close();
             } catch (IOException e) {
