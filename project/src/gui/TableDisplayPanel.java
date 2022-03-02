@@ -3,7 +3,7 @@ package gui;
 import data.DataRepo;
 import linear_regression.Estimator;
 import linear_regression.Model;
-import linear_regression.OrdLeastSquares;
+import linear_regression.OLSEstimator;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -26,7 +26,7 @@ public class TableDisplayPanel extends JPanel {
         double[] dates = data.getDateOffsets();
         double[] cases = data.getCases();
         double[] deaths = data.getDeaths();
-        Estimator estimator = new OrdLeastSquares();
+        Estimator estimator = new OLSEstimator();
         Model casesModel = estimator.getModel(dates, cases);
         Model deathsModel = estimator.getModel(dates, deaths);
         DecimalFormat df = new DecimalFormat("###,###");
@@ -46,7 +46,7 @@ public class TableDisplayPanel extends JPanel {
         add(table, BorderLayout.CENTER);
     }
 
-    public void TableExport(String filename){
+    public void TableExport(String filename) {
         table.setSize(250, 150);
         JTableHeader header = table.getTableHeader();
         int width = Math.max(table.getWidth(), header.getWidth());

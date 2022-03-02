@@ -5,16 +5,16 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class PiecewiseEstimator implements Estimator {
-    private static final int numModels = 5;
-    private static final int sliceSize = 5;
+    private static final int numModels = 10;
+    private static final int sliceSize = 20;
 
     @Override
     public Model getModel(double[] xValues, double[] yValues) {
         ArrayList<ModelAndBound> candidateModels = new ArrayList<>(xValues.length - (numModels - 1));
         double[] xCandidate = new double[sliceSize];
         double[] yCandidate = new double[sliceSize];
-        OrdLeastSquares ols = new OrdLeastSquares();
-        for (int i = 0; i < xValues.length - sliceSize; i += sliceSize) {
+        OLSEstimator ols = new OLSEstimator();
+        for (int i = 0; i <= xValues.length - sliceSize; i += sliceSize) {
             for (int j = 0; j < sliceSize; j++) {
                 xCandidate[j] = xValues[i + j];
                 yCandidate[j] = yValues[i + j];
@@ -41,9 +41,9 @@ public class PiecewiseEstimator implements Estimator {
             models.get(i).setDiff(difference);
         }
         Collections.sort(models);
+        Collections.reverse(models);
         int[] turningPoints = new int[numModels];
         for (int i = 0; i < turningPoints.length; i++) {
-            System.out.println(i);
             turningPoints[i] = models.get(i).getStartIndex();
         }
         Arrays.sort(turningPoints);
@@ -63,14 +63,6 @@ public class PiecewiseEstimator implements Estimator {
             first = turningPoints[i];
         }
         return models;
-    }
-
-    private double[] createSlice(double[] array, int start, int end) {
-        double[] slice = new double[end - start + 1];
-        for (int i = 0; start + i < end; i++) {
-            slice[i] = array[start + i];
-        }
-        return slice;
     }
 
     class ModelAndBound implements Comparable<ModelAndBound> {
