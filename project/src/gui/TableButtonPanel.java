@@ -5,9 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TableButtonPanel extends JPanel {
-    JFrame parent;
+    private JFrame parent;
 
-    TableButtonPanel(JFrame parent) {
+    public TableButtonPanel(JFrame parent) {
         this.parent = parent;
         JButton closeBtn = new JButton("Close");
         add(closeBtn);

@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class MenuOptions extends JPanel {
-    JFrame parent;
-    DataRepo data;
+    private JFrame parent;
+    private DataRepo data;
 
     public MenuOptions(JFrame parent, DataRepo data) {
         this.parent = parent;
@@ -78,7 +78,7 @@ public class MenuOptions extends JPanel {
                 contentStream.drawImage(pdImage2, Width, 60);
                 contentStream.close();
                 TableDisplayPanel displayPanel = new TableDisplayPanel(data);
-                displayPanel.setSize(250,150);
+                displayPanel.setSize(250, 150);
                 displayPanel.TableExport("./table.png");
                 PDImageXObject pdImage3 = PDImageXObject.createFromFile("./table.png", export);
                 PDPage page2 = export.getPage(1);

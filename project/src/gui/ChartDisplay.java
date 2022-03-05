@@ -1,7 +1,6 @@
 package gui;
 
 import data.DataRepo;
-import linear_regression.Model;
 import linear_regression.PiecewiseEstimator;
 import linear_regression.PiecewiseModel;
 import org.jfree.chart.ChartFactory;
@@ -49,7 +48,7 @@ public class ChartDisplay extends JPanel {
         add(chartPanel);
     }
 
-    void refreshChart() {
+    public void refreshChart() {
         double[] dayOffsets = data.getDateOffsets();
         double[] yvalues = mode == Mode.CASES ? data.getCases() : data.getDeaths();
         XYSeries yseries = new XYSeries(ylabel);
@@ -87,7 +86,7 @@ public class ChartDisplay extends JPanel {
         return chart;
     }
 
-    void exportGraph(JFreeChart chart, String filename) {
+    public void exportGraph(JFreeChart chart, String filename) {
         try {
             BufferedImage ylabel = chart.createBufferedImage(450, 325);
             File outputfile = new File(filename);
@@ -98,13 +97,9 @@ public class ChartDisplay extends JPanel {
     }
 
 
-    PiecewiseModel refreshModel(double[] x, double[] y) {
+    private PiecewiseModel refreshModel(double[] x, double[] y) {
         PiecewiseEstimator estimator = new PiecewiseEstimator();
         return (PiecewiseModel) estimator.getModel(x, y);
-    }
-
-    public Model getModel() {
-        return model;
     }
 
     enum Mode {

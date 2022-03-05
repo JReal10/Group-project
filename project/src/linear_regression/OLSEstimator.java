@@ -17,7 +17,7 @@ public class OLSEstimator implements Estimator {
         double yMean = getMean(yValues);
         double coefficient = getCoefficient(xValues, yValues, xMean, yMean);
         double constant = getConstant(xMean, yMean, coefficient);
-        return (Model) new LinearModel(coefficient, constant);
+        return new LinearModel(coefficient, constant);
     }
 
     /**
