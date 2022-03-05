@@ -65,25 +65,25 @@ public class PiecewiseEstimator implements Estimator {
         return models;
     }
 
-    class ModelAndBound implements Comparable<ModelAndBound> {
-        LinearModel model;
-        int startIndex;
-        double diff;
+    private class ModelAndBound implements Comparable<ModelAndBound> {
+        private LinearModel model;
+        private int startIndex;
+        private double diff;
 
-        ModelAndBound(LinearModel model, int startIndex) {
+        public ModelAndBound(LinearModel model, int startIndex) {
             this.model = model;
             this.startIndex = startIndex;
         }
 
-        LinearModel getModel() {
+        public LinearModel getModel() {
             return model;
         }
 
-        int getStartIndex() {
+        public int getStartIndex() {
             return startIndex;
         }
 
-        void setDiff(double diff) {
+        public void setDiff(double diff) {
             this.diff = diff;
         }
 

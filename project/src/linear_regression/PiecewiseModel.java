@@ -1,8 +1,8 @@
 package linear_regression;
 
 public class PiecewiseModel implements Model {
-    double[] modelBounds;
-    LinearModel[] models;
+    private double[] modelBounds;
+    private LinearModel[] models;
 
     // modelBounds is an array of the same length of models
     // where each entry is the x value at which the next model is used

@@ -18,7 +18,7 @@ public class TableDisplayPanel extends JPanel {
 
     private JTable table;
 
-    TableDisplayPanel(DataRepo data) {
+    public TableDisplayPanel(DataRepo data) {
         LayoutManager layout = new BorderLayout();
         setLayout(layout);
         String[] columnNames = {"Day", "Cases", "Deaths"};

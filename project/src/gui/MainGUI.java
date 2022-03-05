@@ -7,11 +7,11 @@ import java.awt.*;
 import java.io.IOException;
 
 public class MainGUI extends JFrame {
-    JTabbedPane tp = new JTabbedPane();
-    ChartDisplay deathsDisplayPanel;
-    ChartDisplay casesDisplayPanel;
-    DataRepo data;
-    MenuOptions menuOptions;
+    private JTabbedPane tp = new JTabbedPane();
+    private ChartDisplay deathsDisplayPanel;
+    private ChartDisplay casesDisplayPanel;
+    private DataRepo data;
+    private MenuOptions menuOptions;
 
     public MainGUI() {
         initData();

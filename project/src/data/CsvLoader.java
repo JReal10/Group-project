@@ -50,7 +50,7 @@ public class CsvLoader {
     }
 
     //prints the contents of the x and the y lists
-    void printLists() {
+    public void printLists() {
         for (int i = 0; i < dates.length; i++) {
             System.out.println(dates[i] + " cases: " + cases[i] + " deaths: " + deaths[i]);
         }

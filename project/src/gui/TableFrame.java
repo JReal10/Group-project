@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TableFrame extends JFrame {
-    TableFrame(DataRepo data) {
+    public TableFrame(DataRepo data) {
         BorderLayout layout = (BorderLayout) getLayout();
         layout.setHgap(10);
         layout.setVgap(20);
