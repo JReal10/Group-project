@@ -5,11 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class PiecewiseEstimator implements Estimator {
-    private static final int numModels = 10;
-    private static final int sliceSize = 20;
+    private static final int sliceSize = 14; // fortnightly
+    private int numModels;
 
     @Override
     public Model getModel(double[] xValues, double[] yValues) {
+        numModels = xValues.length / sliceSize - 1; // model per fortnight
         ArrayList<ModelAndBound> candidateModels = new ArrayList<>(xValues.length - (numModels - 1));
         double[] xCandidate = new double[sliceSize];
         double[] yCandidate = new double[sliceSize];
