@@ -94,8 +94,8 @@ public class CsvLoader {
                 if (values.length != 8) continue; // incomplete data
                 try {
                     Date tmpDate = sd.parse(values[3]);
-                    Integer tmpCase = Integer.parseInt(values[5]);
-                    Integer tmpDeath = Integer.parseInt(values[7]);
+                    Integer tmpCase = Integer.parseInt(values[4]);
+                    Integer tmpDeath = Integer.parseInt(values[6]);
                     // parsing was successful at this point, so add to lists
                     datesList.add(tmpDate);
                     casesList.add(tmpCase);
