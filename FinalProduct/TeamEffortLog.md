@@ -129,7 +129,26 @@ No project code, only test code to understand how to implement it
 * 1 day
 * Complete the requirements section of the MVP
 * No code
-
+### Sprint 5 (University Week 17 & 18):
+* PDF generation
+* https://cseejira.essex.ac.uk/browse/B201157-7
+* 1 day
+* Working with selda to create the PDF functionality (selda turns the graphs to images and i create the image of the table and use the images alongside the pdfbox library to create the pdf)
+### Sprint 6 (University Week 19 & 20):
+* PDF generation
+* https://cseejira.essex.ac.uk/browse/B201157-7
+* NA
+* adapting program to make presentation a bit better and optimising code 
+### Sprint 7 (University Week 21 & 22):
+* Project Management Log
+* https://cseejira.essex.ac.uk/browse/B201157-47
+* 1 day
+* writing the project Management log for the final writeup
+* no code
+* Team Effort Log
+* https://cseejira.essex.ac.uk/browse/B201157-7
+* 1 day
+* Completing my part of the team effort Log
 
 ## Roan John
 
