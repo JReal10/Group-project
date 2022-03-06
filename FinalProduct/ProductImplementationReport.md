@@ -16,7 +16,29 @@ stored in. CSV data is parsed after either being downloaded or read from the loc
 representing the numbers of cases and deaths downloaded from the web API, as well as an array of dates for each value.
 The CSV loader provides the ability to redownload data incase of the cached data being out of date.
 
+#### Data Repo
+The data repo is a wrapper class around the CSV loader that processes the dates parsed from the web API into day offset
+values, which can be used with the graph and regression calculations. The data repo is what the rest of the application
+interacts with, instead of the CSV loader directly.
+
 ### Regression
+
+#### Ordinary Least Squares Estimator
+Ordinary least squares is used to calculate an optimum regression line to fit the parametrized data by minimising the
+squared residuals of the resultant regression line. A straight line function has two components; a gradient and a
+constant intercept. Calculating the gradient is performed as follows
+
+
+$`\hat\beta=\displaystyle\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}`$
+
+
+Calculating the intercept is then calculated using:
+
+
+$`\hat\alpha=\bar y-\hat\beta \bar x`$
+
+
+The estimator then returns a Linear Model object with these parameters.
 
 ### GUI
 
