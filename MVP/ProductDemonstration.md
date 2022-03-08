@@ -29,5 +29,9 @@ If data is successfully download, after user input informing the application to 
 
 ![success](Images/success.png "user interface displaying a confirmation message after it successfully downloads updated data")
 
-The application is currently not able to produce a PDF output, and this would be something that we would be likely to add in the finished product. We would also like to improve the model so it fits the data more than it currently does, using piecewise linear regression as we have documented here: https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/blob/ce3f6a85faf30ce8b354c7a9cef1d40f259ebbe8/research/linear_regression/piecewise.md
+If the user clicks view table on bottom left of the application, it will display the raw data of the graph.
+
+![viewtable](Images/viewtable.png "user interface displaying raw data of the table")
+
+
 
