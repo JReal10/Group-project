@@ -139,17 +139,75 @@ $`\hat\alpha=\bar y-\hat\beta \bar x`$
 The estimator then returns a Linear Model object with these parameters.
 
 
-Runtime efficiency of the algorithm can be calculated by inspecting the individual operations performed during the
-algorithm. The first operations performed are calculations of the mean for both the x and the y values; each taking
-O(n) time. After both means have been calculated, the program calculates the gradient coefficient, which
-involves iterating over every element in each array at the same time, this therefore is also an O(n) operation. Finally
-the algorithm calculates the constant intercept value for the line, which is an O(1) operation. This means that
-ignoring constant factors, the overall runtime efficiency is O(n).
+Runtime efficiency of the algorithm can be calculated by inspecting the individual operations performed during the algorithm.
+
+
+The first operations performed are calculations of the mean for both the x and the y values; each taking O(n) time.
+
+
+```java
+private double getMean(double[] values) {
+    double sum = Arrays.stream(values).sum();
+    return sum / values.length;
+}
+```
+
+
+After both means have been calculated, the program calculates the gradient coefficient, which
+involves iterating over every element in each array at the same time, this therefore is also an O(n) operation.
+
+
+```java
+private double getCoefficient(double[] xValues, double[] yValues, double xMean, double yMean) {
+    double numerator = 0;
+    double denominator = 0;
+    for (int i = 0; i < xValues.length; i++) {
+        double xDiff = xValues[i] - xMean;
+        double yDiff = yValues[i] - yMean;
+        numerator += xDiff * yDiff;
+        denominator += xDiff * xDiff;
+    }
+    return numerator / denominator;
+}
+```
+
+
+Finally the algorithm calculates the constant intercept value for the line, which is an O(1) operation.
+
+
+```java
+private double getConstant(double xMean, double yMean, double coefficient) {
+    return yMean - coefficient * xMean;
+}
+```
+
+
+This means that ignoring constant factors, the overall runtime efficiency is O(n).
 
 #### Data Structure: Array for dates, cases and deaths data
 The number of cases and deaths are stored in a plain arrays of doubles, while the parsed dates are stored in an array of
-Date objects. The data when being loaded from the CSV file is initially stored into an ArrayList, however this is copied
-into an array once the size is known. The reason for the choice of an array is an attempt to make use of the data
+Date objects.
+
+
+```java
+private Date[] dates;
+private double[] cases;
+private double[] deaths;
+```
+
+
+The data when being loaded from the CSV file is initially stored into an ArrayList, however this is copied
+into a standard fixed sized array once the size is known.
+
+
+```java
+dates = datesList.toArray(new Date[datesList.size()]);
+cases = casesList.stream().mapToDouble(i -> i).toArray();
+deaths = deathsList.stream().mapToDouble(i -> i).toArray();
+```
+
+
+The reason for the choice of an array is an attempt to make use of the data
 require as little knowledge as possible for all team members, some of which are less confident with Java; this way no
 knowledge of lists or any possible custom container objects is required.
 
