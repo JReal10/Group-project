@@ -110,6 +110,29 @@ The GUI is primarily displayed within a single JFrame, with a tabbed view to alt
 views. The user selects options in the tabbed view to select the data category they would like to view and the 
 relevant graph with it's appropriate model prediction line displayed.
 
+The plots are displayed using JFreeChart as scatter plots, with data series being displayed on the plot itself and a
+model is generated from the data to generate a model line that can display to the user.
+
+```java
+model = refreshModel(dayOffsets, yvalues);
+```
+
+The model is then used to generate the regression lines matching the piecewise plot, the piecewise model line is split up into
+many smaller linear regression lines which are rendered individually.
+
+```java
+double first = 0;
+for (double bound : model.getBounds()) {
+    double x1 = first;
+    double x2 = bound;
+    double y1 = model.predict(x1);
+    double y2 = model.predict(x2);
+    XYAnnotation modelLine = new XYLineAnnotation(x1, y1, x2, y2);
+    plot.addAnnotation(modelLine);
+    first = bound;
+}
+```
+
 The interface has buttons for a few additional features; a button that provides the ability to reload data from the
 remote API, a button that outputs a PDF report of the data and model loaded in the program, as well as a button to
 display a table view of the next 7 days of predictions.
