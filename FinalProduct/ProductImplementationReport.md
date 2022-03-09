@@ -114,6 +114,60 @@ The interface has buttons for a few additional features; a button that provides 
 remote API, a button that outputs a PDF report of the data and model loaded in the program, as well as a button to
 display a table view of the next 7 days of predictions.
 
+Downloading the new data is triggered by a ReloaderHandler, which is attached to listen for button click events for
+the reload button. Incase of failed the reload handler with prompt the user and ask what to do; failure is likely in
+this case due to network requests being made, as well as file IO.
+
+```java
+private class ReloadHandler implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        for (; ; ) {
+            try {
+                data.refresh();
+                JOptionPane.showMessageDialog(parent, "Successfully downloaded new data", "Success", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            } catch (IOException e) {
+                int result = JOptionPane.showConfirmDialog(parent, "Failed to update data, try again?\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                if (result == 0) continue;
+                else break;
+            }
+        }
+    }
+}
+```
+
+
+
+The table is displayed in it's own JFrame window after the user selects the button. The table populates itself using
+the Model provided by calculating the prediction for each day. The table displays the results from both case
+and death models in a single view and so requires both models to be populated.
+
+
+```java
+private class TableHandler implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        TableFrame frame = new TableFrame(data);
+        frame.setLocationRelativeTo(parent);
+    }
+}
+```
+
+
+PDF generation uses the plots and tables from the components to produce an output report including this
+information and writes it to the project root directory, reducing code duplication. The PDF generation is triggered
+after the user clicks the relevant button and the ExportHandler ActionListener for the button fires.
+
+
+```java
+private class ExportHandler implements ActionListener {
+    public void actionPerformed(ActionEvent event) {
+        // generate pdf
+    }
+}
+```
+
 *This section should describe the software implementation in prose form.  Focus on how the code was designed and built.* 
 *It should make a clear description that could be used by any future developers to maintain and extend your code, if necessary.*
 *Describe important functions / classes / class hierarchies.*
