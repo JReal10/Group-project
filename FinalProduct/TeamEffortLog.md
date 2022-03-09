@@ -180,37 +180,54 @@ No project code, only test code to understand how to implement it
 ## Roan John
 
 ### Sprint 1 (University Week 3):
- - Data processing
- - https://cseejira.essex.ac.uk/browse/B201157-4
- - 1 day
- - Get an idea on how the data would be taken from the CSV files and put into the linear regression algorithm
- - No code involved, more an analysis on the existing code
+* Data processing
+* https://cseejira.essex.ac.uk/browse/B201157-4
+* 1 day
+* Get an idea on how the data would be taken from the CSV files and put into the linear regression algorithm
+* No code involved, more an analysis on the existing code
 
 ### Sprint 2 (University Week 4):
- - Initial thoughts on design
- - https://cseejira.essex.ac.uk/browse/B201157-8
- - 2 days
- - Get an idea on how the GUI might look and be implemented, specifically knowing what content will be displayed on it and what components we might use to implement it.
+* Initial thoughts on design
+* https://cseejira.essex.ac.uk/browse/B201157-8
+* 2 days
+* Get an idea on how the GUI might look and be implemented, specifically knowing what content will be displayed on it and what components we might use to implement it.
  
 ### Sprint 3 (University Weeks 5 & 6):
- - Implementing a GUI
- - https://cseejira.essex.ac.uk/browse/B201157-14a
- - 3 days
- - Implement a working GUI with Java
- - https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/dfe43b62a81d706e8be2eb77a14119f11158dd08
- - Was scrum master this week
+* Implementing a GUI
+* https://cseejira.essex.ac.uk/browse/B201157-14a
+* 3 days
+* Implement a working GUI with Java
+* https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/dfe43b62a81d706e8be2eb77a14119f11158dd08
+* Was scrum master this week
 
 
 ### Sprint 4 (University Week 7):
- - Complete team effort log & fix issue in GUI
- - https://cseejira.essex.ac.uk/browse/B201157-22
- - 1 day
- - Fixed a relative path bug in the GUI code and updated the team effort log
- - https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/c9f0a3cbe8e0f1b4dd09b02014e8106e3e96fffa
+* Complete team effort log & fix issue in GUI
+* https://cseejira.essex.ac.uk/browse/B201157-22
+* 1 day
+* Fixed a relative path bug in the GUI code and updated the team effort log
+* https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/c9f0a3cbe8e0f1b4dd09b02014e8106e3e96fffa
 
+### Sprint 5 (University Week 17 & 18):
+* Research about JUnit testing 
+* https://cseejira.essex.ac.uk/browse/B201157-40
+* 1 day
+* Research and figure out what is necessary to use from the JUnit framework and what components of the project require testing
+
+### Sprint 6 (University Week 19 & 20):
+* Implementation of the JUnit framework
+* https://cseejira.essex.ac.uk/browse/B201157-40
+* 3 days
+* Implementing the JUnit framework to the necessary components that require testing within our project 
+* https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/f584ab0006ecd4e9e67ecfc4d226ccc20d71bc1c
+
+### Sprint 7 (University Week 21 & 22):
+* Product Testing Log
+* https://cseejira.essex.ac.uk/browse/B201157-50
+* 1 day
+* Write a brief summary on all the testing we did for the project.
 
 ## Jamie Ogundian
-
 ### Sprint 1 (University Week 3):
 * Research plotting
 * https://cseejira.essex.ac.uk/browse/B201157-3
