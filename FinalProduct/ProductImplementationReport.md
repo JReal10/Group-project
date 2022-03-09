@@ -15,6 +15,17 @@ stored in. CSV data is parsed after either being downloaded or read from the loc
 representing the numbers of cases and deaths downloaded from the web API, as well as an array of dates for each value.
 The CSV loader provides the ability to redownload data incase of the cached data being out of date.
 
+Cached CSV data is loaded from file if it exists, otherwise the application will download new data from the remote
+government API.
+```java
+File f = new File(filename);
+if (!f.exists()) {
+    update();
+} else {
+    readCsv();
+}
+```
+
 #### Data Repo
 The data repo is a wrapper class around the CSV loader that processes the dates parsed from the web API into day offset
 values, which can be used with the graph and regression calculations. The data repo is what the rest of the application
@@ -72,6 +83,25 @@ public Model getModel(double[] xValues, double[] yValues) {
     return new PiecewiseModel(models, bounds);
 }
 
+```
+
+CSV data is downloaded from the remote API and the gzipped stream is extracted. The API URL has been modified to
+download both cases and deaths in a single request to help reduce the required number of network requests.
+```java
+private void downloadCsv() throws IOException, InterruptedException {
+    HttpClient client = HttpClient.newHttpClient();
+    HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+    HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
+    if (response.statusCode() != 200) throw new IOException("received response code: " + response.statusCode());
+    try {
+        var gzip = new GZIPInputStream(response.body());
+        ensureDirExists();
+        Path pathToFile = Paths.get(filename);
+        Files.copy(gzip, pathToFile.toAbsolutePath(), StandardCopyOption.REPLACE_EXISTING);
+    } catch (ZipException e) {
+        throw new IOException("unable to read gzip compressed csv");
+    }
+}
 ```
 
 ### GUI
