@@ -301,4 +301,4 @@ average effect of a constant factor on each insertion. Copying from the ArrayLis
 - JUnit - Used for some unit tests.
 
 ## Known Issues
-*List any known issues (bugs) in your software, and describe workarounds if they exist.*
+No known issues with the application are present.
