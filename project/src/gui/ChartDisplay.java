@@ -57,7 +57,7 @@ public class ChartDisplay extends JPanel {
         dataset.addSeries(yseries);
         model = refreshModel(dayOffsets, yvalues);
         XYSeries extrapolationSeries = new XYSeries(ylabel);
-        for (int i = dayOffsets.length; i < dayOffsets.length + 31; i++) {
+        for (int i = dayOffsets.length; i < dayOffsets.length + 14; i++) {
             extrapolationSeries.add(i, model.predict(i));
         }
         dataset.addSeries(extrapolationSeries);
