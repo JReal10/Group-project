@@ -46,7 +46,7 @@ public class TableDisplayPanel extends JPanel {
         add(table, BorderLayout.CENTER);
     }
 
-    public void TableExport(String filename) {
+    public void tableExport(String filename) {
         table.setSize(250, 150);
         JTableHeader header = table.getTableHeader();
         int width = Math.max(table.getWidth(), header.getWidth());
