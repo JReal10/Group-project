@@ -42,6 +42,33 @@
 * Minor code refactoring
 * Complete Team effort log
 
+### Sprint 5 (University Weeks 17 & 18):
+* Fix initialization crash on application launch due to unexpected filesystem state https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/a36807707745ebd10cc87cfc8b70426143953049
+* Add table interface to display specific values for the next 7 days of predictions https://cseejira.essex.ac.uk/browse/B201157-39
+* Fix network failure bug https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/1c7ac804f53b76cec44bacc32d4e2b8646499093
+* Divide remaining possible tasks among team members to ensure they all have made code contributions
+* Advise team members on possible methods of implementation for tasks
+
+### Sprint 6 (University Week 19 & 20):
+* Implement piecewise regression estimator and model https://cseejira.essex.ac.uk/browse/B201157-41
+* Modify plot to render a piecewise regression line instead of a single linear regression linear https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/01f61a5273b01d111472a9148865e517cbbe62be
+* Major rebase and fix conflicts of all outstanding team member's branches to allow them to merge into master
+* Add header to table to improve user experience https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/83f81998d91c4ca2bfba140a8c0c98b89b8638f1
+* Fix table interface bug causing only case predictions to be displayed https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/83f81998d91c4ca2bfba140a8c0c98b89b8638f1
+* Fix bug with piecewise regression causing many knot points to be very close together https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/3ca3259177ed58ea75e5b696d340f0dae8dc74bb
+
+### Sprint 7 (University Week 21 & 22):
+* Prepare repository for team members to begin writing tasks and avoid merge conflicts https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/418ff1ae75e0efd359467aeb7675e83079ad54f0
+* Divide documentation tasks among team members and ensure all are comfortable with their tasks
+* Fix missing project dependencies https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/0dbe0bf960b992bc9b97dadab9bfd76066b4b751
+* Advise team members on possible content for documentation tasks
+* Fix plot displaying cumulative data instead of daily changes https://cseejira.essex.ac.uk/browse/B201157-44
+* Code cleanup of style inconsistencies (various)
+* Adjust model extrapolation period https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/341cc9c71438530bb655b94971ac6f308cafd262
+* Document application implementation https://cseejira.essex.ac.uk/browse/B201157-49
+* Build project jar file & test functionality https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/blob/30a389d4f45b79e82513d5ef3e29316fe2a5c0eb/FinalProduct/project.jar
+* Complete team effort log https://cseejira.essex.ac.uk/browse/B201157-53
+
 ## Durga Wigton
 
 ### Sprint 1 (University Week 3):
