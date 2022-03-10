@@ -17,9 +17,9 @@ public class MainGUI extends JFrame {
         initData();
         menuOptions = new MenuOptions(this, data);
         casesDisplayPanel = new ChartDisplay(data, ChartDisplay.Mode.CASES);
-        casesDisplayPanel.exportGraph(casesDisplayPanel.getChart(), "./casesGraph.png");
+        casesDisplayPanel.exportGraph(casesDisplayPanel.getChart(), "resources/casesGraph.png");
         deathsDisplayPanel = new ChartDisplay(data, ChartDisplay.Mode.DEATHS);
-        deathsDisplayPanel.exportGraph(deathsDisplayPanel.getChart(), "./deathsGraph.png");
+        deathsDisplayPanel.exportGraph(deathsDisplayPanel.getChart(), "resources/deathsGraph.png");
 
         tp.addTab("Cases", null, casesDisplayPanel);
         tp.addTab("Deaths", null, deathsDisplayPanel);

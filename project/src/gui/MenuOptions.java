@@ -73,26 +73,26 @@ public class MenuOptions extends JPanel {
                 PDPage page1 = export.getPage(0);
                 float yStart = PDRectangle.A4.getHeight() - 425;
                 float Width = PDRectangle.A4.getWidth() - 500;
-                PDImageXObject pdImage = PDImageXObject.createFromFile("./deathsGraph.png", export);
-                PDImageXObject pdImage2 = PDImageXObject.createFromFile("./casesGraph.png", export);
+                PDImageXObject pdImage = PDImageXObject.createFromFile("resources/deathsGraph.png", export);
+                PDImageXObject pdImage2 = PDImageXObject.createFromFile("resources/casesGraph.png", export);
                 PDPageContentStream contentStream = new PDPageContentStream(export, page1);
                 contentStream.drawImage(pdImage, Width, yStart);
                 contentStream.drawImage(pdImage2, Width, 60);
                 contentStream.close();
                 TableDisplayPanel displayPanel = new TableDisplayPanel(data);
                 displayPanel.setSize(250, 150);
-                displayPanel.tableExport("./table.png");
-                PDImageXObject pdImage3 = PDImageXObject.createFromFile("./table.png", export);
+                displayPanel.tableExport("resources/table.png");
+                PDImageXObject pdImage3 = PDImageXObject.createFromFile("resources/table.png", export);
                 PDPage page2 = export.getPage(1);
                 PDPageContentStream contentStream2 = new PDPageContentStream(export, page2);
                 contentStream2.drawImage(pdImage3, Width, yStart);
                 contentStream2.close();
-                String filename = "Results_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH_mm_ss")) + ".pdf";
+                String filename = "resources/Results_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH_mm_ss")) + ".pdf";
                 export.save(filename);
                 export.close();
                 Path path = Paths.get(filename);
 
-                JOptionPane.showMessageDialog(parent, "Successfully created: "+ path.toAbsolutePath(), "Success", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(parent, "Successfully created: " + path.toAbsolutePath(), "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showConfirmDialog(parent, "Failed to create pdf\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
