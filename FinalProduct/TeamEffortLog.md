@@ -68,6 +68,8 @@
 * Document application implementation https://cseejira.essex.ac.uk/browse/B201157-49
 * Build project jar file & test functionality https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/blob/30a389d4f45b79e82513d5ef3e29316fe2a5c0eb/FinalProduct/project.jar
 * Complete team effort log https://cseejira.essex.ac.uk/browse/B201157-53
+* Create README.md to document how to run the program https://cseegit.essex.ac.uk/21-22-ce201-col/CE201_liang-3/-/commit/0d3fd483abacd8c5a414ecf0575812adb18a8e5e
+* Create submission document
 
 ## Durga Wigton
 
