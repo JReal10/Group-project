@@ -12,6 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -88,8 +90,12 @@ public class MenuOptions extends JPanel {
                 String filename = "Results_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy_HH_mm_ss")) + ".pdf";
                 export.save(filename);
                 export.close();
+                Path path = Paths.get(filename);
+
+                JOptionPane.showMessageDialog(parent, "Successfully created: "+ path.toAbsolutePath(), "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
+                JOptionPane.showConfirmDialog(parent, "Failed to create pdf\nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
