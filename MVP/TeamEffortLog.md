@@ -200,25 +200,5 @@ No project code, only test code to understand how to implement it
 
 ## Selda Ozturkmen
 
-### Sprint 1 (University Week 3):
-* Read the project on Moodle
-* Research and understand how to generate a PDF file
-* Day 2
-* Learn how to output the data in a png file first
-* No code to display, only researched to have an understanding on what to docs
-
-### Sprint 2 (University Week 4):
-* Research how to generate a png file
-* Learn how to convert png files into pdf files
-* Getting used to GitLab and Jira
-
-### Sprint 3 (University Week 5,6 & 7):
-* Try outputing the graph in a png format
-* https://cseejira.essex.ac.uk/browse/B201157-61
-* Merging my code of outputting a png file of the graph 
-* Merging it with the rest of the code
-* ce52fd50
-
-
-
+*Repeat for each team member, i.e. with more subheadings "Sprint1, Sprint2, ... Sprint N"*
 
