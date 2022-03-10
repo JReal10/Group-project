@@ -81,7 +81,7 @@ public class MenuOptions extends JPanel {
                 contentStream.close();
                 TableDisplayPanel displayPanel = new TableDisplayPanel(data);
                 displayPanel.setSize(250, 150);
-                displayPanel.TableExport("./table.png");
+                displayPanel.tableExport("./table.png");
                 PDImageXObject pdImage3 = PDImageXObject.createFromFile("./table.png", export);
                 PDPage page2 = export.getPage(1);
                 PDPageContentStream contentStream2 = new PDPageContentStream(export, page2);
